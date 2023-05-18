@@ -20,6 +20,108 @@ class Maze(turtle.Turtle):
         self.penup()
         self.speed(0)
         
+ #green turtle
+ class Green(turtle.Turtle):
+        def __init__(self) :
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("green")
+        self.penup()
+        self.speed(0)
+        
+   #blue turtle
+ class Blue(turtle.Turtle):
+        def __init__(self) :
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("blue")
+        self.penup()
+        self.speed(0)
+        
+   #red turtle
+ class Red(turtle.Turtle):
+        def __init__(self) :
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("red")
+        self.theading(270)
+        self.penup()
+        self.speed(0)
+        
+    #yellow turtle
+ class Yellow(turtle.Turtle):
+        def __init__(self) :
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("yellow")
+        self.penup()
+        self.speed(0)
+        
+       grid4 = [
+    "+++++++++++++++",
+    "              e",
+    "               ",
+    "               ",
+    "               ",
+    "               ",
+    "               ",
+    "               ",
+    "s              ",
+    "+++++++++++++++",
+]
+    
+    grid2 = [
+"+++++++++++++++",
+"+s+       + +e+",
+"+ +++++ +++ + +",
+"+ + +       + +",
+"+ +   +++ + + +",
+"+ + + +   + + +",
+"+   + + + + + +",
+"+++++ + + + + +",
+"+     + + +   +",
+"+++++++++++++++",
+ ]
+    
+    grid3 = [
+"+++++++++",
+"+ ++ ++++",
+"+ ++ ++++",
+"+ ++ ++++",
+"+s   ++++",
+"++++ ++++",
+"++++ ++++",
+"+      e+",
+"+++++++++",
+ ]
+    
+    grid1 = [
+"++++++++++++++++++++++++++++++++++++++++++++++",
+"+ s             +                            +",
+"+ +++++++++++ +++++++++++++++ ++++++++ +++++ +",
+"+           +                 +        +     +",
+"++ +++++++ ++++++++++++++ ++++++++++++++++++++",
+"++ ++    + ++           + ++                 +",
+"++ ++ ++ + ++ ++ +++++ ++ ++ +++++++++++++++ +",
+"++ ++ ++ + ++ ++ +     ++ ++ ++ ++        ++ +",
+"++ ++ ++++ ++ +++++++++++ ++ ++ +++++ +++ ++ +",
+"++ ++   ++ ++             ++          +++ ++e+",
+"++ ++++ ++ +++++++++++++++++ +++++++++++++++ +",
+"++    + ++                   ++              +",
+"+++++ + +++++++++++++++++++++++ ++++++++++++ +",
+"++ ++ +                   ++          +++ ++ +",
+"++ ++ ++++ ++++++++++++++ ++ +++++ ++ +++ ++ +",
+"++ ++ ++   ++     +    ++ ++ ++    ++     ++ +",
+"++ ++ ++ +++++++ +++++ ++ ++ +++++++++++++++ +",
+"++                     ++ ++ ++              +",
+"+++++ ++ + +++++++++++ ++ ++ ++ ++++++++++++++",
+"++++++++++++++++++++++++++++++++++++++++++++++",
+ ]
+
+    
+ 
+        
+        
 def setup_maze(grid):                          
     global start_x, start_y, end_x, end_y      
     for y in range(len(grid)):                 
@@ -96,4 +198,22 @@ def backRoute(x, y):
     while (x, y) != (start_x, start_y):    
         yellow.goto(solution[x, y])        
         yellow.stamp()                     
-        x, y = solution[x, y]             
+        x, y = solution[x, y] 
+        
+        
+   #initialise lists
+maze = Maze()
+red = Red()
+blue = Blue()
+green = Green()
+yellow = Yellow()
+walls = []
+path = []
+visited = []
+frontier = []
+solution = {}
+
+setup_maze(grid1)
+search(star_x, start_y)
+backRoute(end_x, end-y)
+wn.exitonclick()
