@@ -21,43 +21,43 @@ class Maze(turtle.Turtle):
         self.speed(0)
         
  #green turtle
- class Green(turtle.Turtle):
+class Green(turtle.Turtle):
         def __init__(self) :
-        turtle.Turtle.__init__(self)
-        self.shape("square")
-        self.color("green")
-        self.penup()
-        self.speed(0)
+            turtle.Turtle.__init__(self)
+            self.shape("square")
+            self.color("green")
+            self.penup()
+            self.speed(0)
         
    #blue turtle
- class Blue(turtle.Turtle):
+class Blue(turtle.Turtle):
         def __init__(self) :
-        turtle.Turtle.__init__(self)
-        self.shape("square")
-        self.color("blue")
-        self.penup()
-        self.speed(0)
+            turtle.Turtle.__init__(self)
+            self.shape("square")
+            self.color("blue")
+            self.penup()
+            self.speed(0)
         
    #red turtle
- class Red(turtle.Turtle):
-        def __init__(self) :
+class Red(turtle.Turtle):
+    def __init__(self) :
         turtle.Turtle.__init__(self)
         self.shape("square")
         self.color("red")
-        self.theading(270)
+        self.setheading(270)
         self.penup()
         self.speed(0)
         
     #yellow turtle
- class Yellow(turtle.Turtle):
-        def __init__(self) :
+class Yellow(turtle.Turtle):
+    def __init__(self) :
         turtle.Turtle.__init__(self)
         self.shape("square")
         self.color("yellow")
         self.penup()
         self.speed(0)
         
-       grid4 = [
+grid4 = [
     "+++++++++++++++",
     "              e",
     "               ",
@@ -70,57 +70,53 @@ class Maze(turtle.Turtle):
     "+++++++++++++++",
 ]
     
-    grid2 = [
-"+++++++++++++++",
-"+s+       + +e+",
-"+ +++++ +++ + +",
-"+ + +       + +",
-"+ +   +++ + + +",
-"+ + + +   + + +",
-"+   + + + + + +",
-"+++++ + + + + +",
-"+     + + +   +",
-"+++++++++++++++",
- ]
+grid2 = [
+    "+++++++++++++++",
+    "+s+       + +e+",
+    "+ +++++ +++ + +",
+    "+ + +       + +",
+    "+ +   +++ + + +",
+    "+ + + +   + + +",
+    "+   + + + + + +",
+    "+++++ + + + + +",
+    "+     + + +   +",
+    "+++++++++++++++",
+]
     
-    grid3 = [
-"+++++++++",
-"+ ++ ++++",
-"+ ++ ++++",
-"+ ++ ++++",
-"+s   ++++",
-"++++ ++++",
-"++++ ++++",
-"+      e+",
-"+++++++++",
- ]
+grid3 = [
+    "+++++++++",
+    "+ ++ ++++",
+    "+ ++ ++++",
+    "+ ++ ++++",
+    "+s   ++++",
+    "++++ ++++",
+    "++++ ++++",
+    "+      e+",
+    "+++++++++",
+]
     
-    grid1 = [
-"++++++++++++++++++++++++++++++++++++++++++++++",
-"+ s             +                            +",
-"+ +++++++++++ +++++++++++++++ ++++++++ +++++ +",
-"+           +                 +        +     +",
-"++ +++++++ ++++++++++++++ ++++++++++++++++++++",
-"++ ++    + ++           + ++                 +",
-"++ ++ ++ + ++ ++ +++++ ++ ++ +++++++++++++++ +",
-"++ ++ ++ + ++ ++ +     ++ ++ ++ ++        ++ +",
-"++ ++ ++++ ++ +++++++++++ ++ ++ +++++ +++ ++ +",
-"++ ++   ++ ++             ++          +++ ++e+",
-"++ ++++ ++ +++++++++++++++++ +++++++++++++++ +",
-"++    + ++                   ++              +",
-"+++++ + +++++++++++++++++++++++ ++++++++++++ +",
-"++ ++ +                   ++          +++ ++ +",
-"++ ++ ++++ ++++++++++++++ ++ +++++ ++ +++ ++ +",
-"++ ++ ++   ++     +    ++ ++ ++    ++     ++ +",
-"++ ++ ++ +++++++ +++++ ++ ++ +++++++++++++++ +",
-"++                     ++ ++ ++              +",
-"+++++ ++ + +++++++++++ ++ ++ ++ ++++++++++++++",
-"++++++++++++++++++++++++++++++++++++++++++++++",
- ]
-
-    
- 
-        
+grid1 = [
+    "++++++++++++++++++++++++++++++++++++++++++++++",
+    "+ s             +                            +",
+    "+ +++++++++++ +++++++++++++++ ++++++++ +++++ +",
+    "+           +                 +        +     +",
+    "++ +++++++ ++++++++++++++ ++++++++++++++++++++",
+    "++ ++    + ++           + ++                 +",
+    "++ ++ ++ + ++ ++ +++++ ++ ++ +++++++++++++++ +",
+    "++ ++ ++ + ++ ++ +     ++ ++ ++ ++        ++ +",
+    "++ ++ ++++ ++ +++++++++++ ++ ++ +++++ +++ ++ +",
+    "++ ++   ++ ++             ++          +++ ++e+",
+    "++ ++++ ++ +++++++++++++++++ +++++++++++++++ +",
+    "++    + ++                   ++              +",
+    "+++++ + +++++++++++++++++++++++ ++++++++++++ +",
+    "++ ++ +                   ++          +++ ++ +",
+    "++ ++ ++++ ++++++++++++++ ++ +++++ ++ +++ ++ +",
+    "++ ++ ++   ++     +    ++ ++ ++    ++     ++ +",
+    "++ ++ ++ +++++++ +++++ ++ ++ +++++++++++++++ +",
+    "++                     ++ ++ ++              +",
+    "+++++ ++ + +++++++++++ ++ ++ ++ ++++++++++++++",
+    "++++++++++++++++++++++++++++++++++++++++++++++",
+    ]
         
 def setup_maze(grid):                          
     global start_x, start_y, end_x, end_y      
@@ -162,7 +158,7 @@ def search(x,y):
             blue.stamp()               
             frontier.append(cellleft)  
 
-        if (x, y - 24) in path and (x, y - 24) 
+        if (x, y - 24) in path and (x, y - 24) not in visited:
             celldown = (x, y - 24)
             solution[celldown] = x, y  
             blue.goto(celldown)
@@ -201,7 +197,7 @@ def backRoute(x, y):
         x, y = solution[x, y] 
         
         
-   #initialise lists
+#initialise lists
 maze = Maze()
 red = Red()
 blue = Blue()
@@ -214,6 +210,6 @@ frontier = []
 solution = {}
 
 setup_maze(grid1)
-search(star_x, start_y)
-backRoute(end_x, end-y)
+search(start_x, start_y)
+backRoute(end_x, end_y)
 wn.exitonclick()
